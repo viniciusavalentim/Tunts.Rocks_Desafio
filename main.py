@@ -43,6 +43,7 @@ def main():
 
     status = ""
     formatGradeForFinalApproval = 0
+    gradeForFinalApproval = 0
     number = 3
 
     for row in values:
@@ -53,9 +54,6 @@ def main():
 
       sum = ((test1 + test2 + test3)/3)/10
 
-      if sum >= 5 and sum < 7:
-        gradeForFinalApproval = 7 - sum
-        formatGradeForFinalApproval = "{:.1f}".format(round(gradeForFinalApproval, 1))
 
       if schoolAbsences > 15:
         status = "Reprovado Por falta"
@@ -65,6 +63,14 @@ def main():
         status = "Exame Final"
       elif sum >= 7:
         status = "Aprovado"
+
+      if schoolAbsences > 15:
+        formatGradeForFinalApproval = 0
+      elif sum >= 7:
+        formatGradeForFinalApproval = 0
+      elif sum >= 5 and sum < 7:
+        gradeForFinalApproval = 7 - sum
+        formatGradeForFinalApproval = "{:.1f}".format(round(gradeForFinalApproval, 1))
 
       put = [
         [status, formatGradeForFinalApproval]
